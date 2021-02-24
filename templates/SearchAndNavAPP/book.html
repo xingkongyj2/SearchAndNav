@@ -1,0 +1,15 @@
+
+
+{% for item in book_data %}
+        <li class="suggest-item-moive">
+            <div class="suggest-img">
+                <img style="width: 50px;height: 73px;"  src="https://images.weserv.nl/?url={{ item.pic }}" height="100%">
+            </div>
+            <div class="suggest-text">
+                <div class="suggest-title">{{ item.title }}</div>
+                <div class="suggest-name">{{ item.author_name }}</div>
+                <div class="suggest-numbers"></div>
+            </div>
+            <div class="suggest-year">{{ item.year }}</div>
+        </li>
+{% endfor %}

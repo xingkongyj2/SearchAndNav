@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聚一搜索｜生活中的聚合工具</title>
+
+    <meta name="renderer" content="webkit">
+    <link rel="shortcut icon" href="https://i.loli.net/2020/06/23/IBMQydDX2cmPYsK.png"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+{#     <link rel="stylesheet" href="css/search.css" type="text/css">#}
+{#    <link rel="stylesheet" href="layui/css/layui.css"  media="all">#}
+    <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    {#  static就代表当前在 static路径下 #}
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+    <link rel="stylesheet" href="{% static 'layui/css/layui.css' %}" media="all">
+
+</head>
+<body>
+
+        <div class="color-name"></div>
+        <div id="options" class="options"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sliders"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg></div>
+        <div id="setting" class="setting">
+                <ul class="setting-list">
+                    <li><a href="#">回到主站</a></li>
+                    <li><a href="/nav" target="_blank">聚一导航</a></li>
+                    <li><a href="#">使用说明</a></li>
+                    <li class="noappear"><a>清除选中</a></li>
+                </ul>
+        </div>
+        {#弹出框#}
+        <button data-method="notice" class="layui-btn" style="display: none"></button>
+        <button data-method="notice" class="layui-btn2" style="display: none"></button>
+
+        <div class="box-right">
+
+                <div class="search bar2">
+
+{#                    <div class="logo-image"><a href="/nav"><img src="http://xingkong-images.test.upcdn.net/uPic/sitelogo.png" height="70"></a></div>#}
+                    <div class="logo-image"><a href="/nav" target="_blank">聚一搜索<span>兔子翻书</span></a></div>
+                    <form class="bgfrom">
+                        <input class="input-text" id="input-text" type="text" onkeydown="if(event.keyCode==13) openLable()" placeholder="" autocomplete="off">
+                        <input type="text" class="form-control" style="display:none">
+                        <div class="btn"  onclick="openLable()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg></div>
+                        <div class="delete_btn" onclick="deleteInput()" style="display: none"><svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div>
+                        <div class="suggest" style="display: none">
+                            <ul id="suggest_ul" class="suggest_ul">
+                            </ul>
+                      </div>
+                    </form>
+                    <div class="search-class">
+                            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                  <ul class="layui-tab-title">
+                                      {# 因为有效果变化，所以第一个类和其他类不同#}
+                                      {% for item in search_class %}
+                                          {% if forloop.counter == 1 %}
+                                               <li class="layui-this">{{ item.name }}</li>{# 这样可以访问item字典中的name字段#}
+                                          {% else %}
+                                               <li>{{ item.name }}</li>
+                                          {% endif %}
+                                      {% endfor %}
+                                  </ul>
+                                  <div class="layui-tab-content">
+
+
+
+                                      {% for key,values in search_data.items %}
+
+                                            {% if forloop.counter == 1 %}
+                                              <div class="layui-tab-item layui-show">{# 这样可以访问item字典中的name字段#}
+                                            {% else %}
+                                               <div class="layui-tab-item">
+                                            {% endif %}
+                                                 {% for site_data in values %}
+                                                        <div id="lable" class="lable" data-class="{{ site_data.site_class_id }}" data-url="{{ site_data.url }}" data-lable="{{ site_data.name }}">
+
+{#                                                        {%  ifnotequal  site_data.logo 'null' %}#}
+{#                                                            <img class="small-ico" style="float: left;" src="{{ site_data.logo }}" width="20" height="20" style="float: left;"/>#}
+{#                                                        {% else %}#}
+{#                                                            <div style="float: left;font-size: 16px;">#</div>#}
+{#                                                        {% endifnotequal %}#}
+                                                            <div class="lable_char">#</div>
+
+                                                        <!--data-index='0'是类的编号，看它属于那个类。用来对不同的类进行不同的智能提示-->
+                                                        <div class="lable_name"   style="float: left;">{{ site_data.name }}</div>
+
+                                                    </div>
+                                                 {% endfor %}
+                                            </div>
+
+                                      {% endfor %}
+                                          </div>
+                            </div>
+
+
+
+
+
+                            <div class="nsert-lable">
+
+                            </div>
+
+<!--                    <div class="shou-talk layui-anim layui-anim-up" data-anim="layui-anim-up">-->
+<!--                             <div class="layui-carousel" id="test10" lay-indicator="none">-->
+<!--                                            <div carousel-item="" style="border-radius: 5px;">-->
+<!--                                              <div class="yiyan" >-->
+<!--                                                  <div class="talk-text">因为你，我想要变成一个更好的人，不想成为你的负担，因此发奋，只是想证明我足以与你相配。只是想证明我足<p>——《侧耳倾听》</p></div>-->
+
+
+<!--                                              </div>-->
+<!--                                              <div class="yiyan" >-->
+<!--                                                  <div class="talk-text">如果把童年再放映一遍，我们一定会先大笑，然后放声痛哭，最后挂着泪，微笑着睡去。<p>——《千与千寻》</p></div>-->
+
+<!--                                              </div>-->
+<!--                                              <div class="yiyan" >-->
+<!--                                                  <div class="talk-text">他喜欢她，无关爱情。她幸福了，于是他也幸福了。<p>——《千与千寻》</p></div>-->
+
+<!--                                              </div>-->
+<!--                                            </div>-->
+<!--                                      </div>-->
+<!--                                  </div>-->
+
+                    </div>
+                </div>
+        </div>
+        </div>
+      <!--   <div class="footer">
+            <ul class="items">
+                <li class="item">©2020 All for one</li>
+                <li class="item link">关于</li>
+            </ul>
+        </div> -->
+
+
+
+
+<script src="{% static 'js/p5.js' %}"></script>
+<script src="{% static 'js/waves.js' %}"></script>
+<script src="{% static 'js/jquery-3.1.1.min.js' %} "></script>
+<script src="{% static 'layui/layui.js' %} " charset="utf-8"></script>
+<script src="{% static 'js/style.js' %}"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script type="text/javascript">
+
+document.documentElement.style.setProperty('--main', main_color["hex"]);
+$(".color-name").html(main_color["name"]);
+
+
+</script>
+
+</body>
+</html>

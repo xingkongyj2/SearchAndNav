@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     {% load static %}
+    {% load poll_extras %}
+    <meta charset="UTF-8">
+    <title>聚一导航｜生活中的聚合工具</title>
+    <meta name="renderer" content="webkit">
+    <link rel="shortcut icon" href="http://xingkong-images.test.upcdn.net/PicGo/20201230095918.png"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'layui/css/layui.css' %}" media="all">
+
+</head>
+<body>
+
+
+{#        <div class="header">#}
+{##}
+{#                <div style="line-height: 60px;">#}
+{#                    <a href="/">#}
+{#                        <img src="https://i.loli.net/2020/06/22/I1JF5K6LePHEipj.png" style="margin-left: 5px;" height="45">&nbsp;&nbsp;#}
+{#                        <img class="webname" src="https://i.loli.net/2020/06/23/28tDZmV9oEOLTiQ.png" style="margin: 0 auto" height="33">#}
+{#                    </a>#}
+{#                </div>#}
+{#                <div class="header-menu">#}
+{#                    <img src="{% static 'icons/nav.svg' %}" style=" float: left;" height="22">#}
+{#                    <div class="anv">聚集地</div>#}
+{#                    <img src="{% static 'icons/notebook.svg' %}" style=" float: left;" height="22">#}
+{#                    <div class="botebook">随看文章</div>#}
+{#                </div>#}
+{#        </div>#}
+            <div class="box-left">
+
+<!--                    <div class="nav-header layui-anim layui-anim-up" data-anim="layui-anim-up">-->
+<!--                        <img src="img/logo.png" style="margin-left: 70px;" height="50">-->
+<!--                    </div>-->
+                    <div class="nav-content">
+                        <div class="menu-item2-tag">
+                                <nav class="toc">
+                                    <ul>
+                                         {% for item_menu in FirstClass %}
+                                             <li><a href="#{{ forloop.counter }}">{{ item_menu }}</a></li>
+                                         {% endfor %}
+                                    </ul>
+                                    <svg class="toc-marker" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke="red" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
+                                    </svg>
+                            </nav>
+                            </div>
+
+                        </div>
+                        <!-- <div class="nav-img">
+
+                        </div>
+                        -->
+                    </div>
+           </div>
+
+            <div class="box-right">
+
+                <div class="main-panel">
+
+
+
+
+
+
+
+                    {% for class_key,item_datas in navdatas.items %}
+
+                            <section id="{{ forloop.counter }}">
+                                <div class="panel-title">•
+                                    <i class="czs" style="color: #0C0C0C; font-style:normal">{{ class_key}}</i>
+                                </div>
+
+                                    <div class="panel-class">
+
+                                        <div class="row" >
+                                            {% for key,value in item_datas.items %}
+
+                                                {%  ifnotequal key 'null' %}
+                                                    <div class="card-col">
+                                                       <div class="card2" style="{{ back|background:key }}">
+
+                                                            <div class="back-color2" >
+                                                                <!-- 用0-0的方式代表分类个编号，因为每一个链接都需要一个唯一标识 。多个相同的类中的某一个要用onclick,jquery不能判断你点的是相同元素中的哪一个。也就是说要去处理现在点击的那个元素-->
+                                                                <div class="card-tag"><a style="color: #ffffff;font-size: 37px;" >#</a>{{ key }}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endifnotequal %}
+
+                                                 {% for item in value %}
+                                                        <div class="card-col">
+                                                            <div class="card">
+                                                                <div class="back-color">
+                                                                    <!-- 用0-0的方式代表分类个编号，因为每一个链接都需要一个唯一标识 。多个相同的类中的某一个要用onclick,jquery不能判断你点的是相同元素中的哪一个。也就是说要去处理现在点击的那个元素-->
+                                                                    <a class="card-heading" id="card-heading" onclick="countClik(this)" data-id="{{ item.id }}" title="{{ item.url }}" href="{{ item.url }}" target="_blank">
+                                                                        <span class="card-icon">
+                                                                                <img src="{{ item.logo }}">
+                                                                        </span>
+                                                                        <span class="card-title">{{ item.name }}</span>
+                                                                         {%  ifnotequal  item.lable 'null' %}
+                                                                            <span class="card-lable">{{ item.lable }}</span>
+                                                                         {% endifnotequal %}
+                                                                    </a>
+                                                                    <div class="card-box">
+                                                                        <div class="card-body">{{ item.description }}</div>
+
+                                                                        <div class="card-love-number" id="card-love-number">{{ item.awesome }}</div>
+                                                                        <img class="like" id="like" data-number="0" data-id="{{ item.id }}" src="{% static 'icons/2.svg' %}" height="18" width="18" onclick="swith_like(this)">
+
+                                                                    </div>
+                                                                        <div class="card-footer"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                 {% endfor %}
+                                            {% endfor %}
+                                        </div>
+
+                                    </div>
+
+                            </section>
+
+
+                    {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'layui/layui.js' %}" charset="utf-8"></script>
+<script src="{% static 'js/style.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script><!-- 导航-->
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

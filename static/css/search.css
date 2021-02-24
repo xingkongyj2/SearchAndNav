@@ -1,0 +1,600 @@
+:root {
+ --main: #76777A;
+}
+
+@font-face{
+    font-family: 'FZXiJinLJW';
+    src : url('../font/FZCuJinLJW.ttf');
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: #FDFDFD;
+    color: var(--main);
+}
+
+a{
+    color: #ffffff;
+    text-decoration:none;
+}
+
+
+ul {
+    padding-inline-start: 0px !important;
+}
+
+p {
+    display: block;
+    font-size: 16px;
+    margin-block-start: 0.5em !important;
+    margin-block-end: 0em !important;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    float: right;
+}
+
+.color-name{
+    font-family: "FZXiJinLJW";
+    position: absolute;
+    font-size: calc(100px + 5vw);
+    right: 15px;
+    top: 0;
+    color: rgba(0,0,0,0.1);
+    opacity: 1;
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+    transform: translate(10%, -5%);
+}
+
+.options{
+    position: absolute;
+    left: 30px;
+    bottom: 20px;
+    font-size: 1.5rem;
+    color: #ffffff;
+    overflow: hidden;
+    z-index: 100;
+    transition:all .5s;
+}
+
+.options:hover{
+    transform: scale(1.1);
+    transition:all .5s;
+}
+
+.setting{
+    font-family: 'FZXiJinLJW';
+    display: none;
+    color: #ffffff;
+    left: 30px;
+    bottom: 40px;
+    position: absolute;
+    font-size: 17px;
+    overflow: hidden;
+    z-index: 50;
+}
+
+.setting-list li{
+
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.setting-list li a
+{
+    transition:all .3s;
+    border-bottom:2px dotted #ffffff;
+}
+
+
+.setting-list li a:hover{
+    color: var(--main);
+    transition:all .3s;
+    border-bottom:2px dotted var(--main);
+}
+
+.box-right{
+    margin: 90px 0 0 0;
+    position: absolute;
+    width: 100%;
+}
+
+
+.header{
+    position: absolute;
+    display: flex;
+    top: 0px;
+    right: 20px;
+    font-size: 16px;
+    -webkit-box-align: center;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    margin: 20px 0px;
+}
+
+.anv{
+    float: right;
+    margin-right: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 340;
+    border-radius: 20px;
+    padding-left: 5px;
+}
+.botebook{
+    float: right;
+    font-size: 16px;
+    cursor: pointer;
+    padding-left: 5px;
+    font-weight: 340;
+    letter-spacing: 2px;
+}
+
+.logo-image{
+    padding:40px 0 40px 0;
+    color: #0092F8;
+    font-size: 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.logo-image a{
+    font-size: 55px;
+    display: block;
+    font-family: 'FZXiJinLJW';
+    color: var(--main);
+    -webkit-transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.logo-image a:hover{
+    transform: scale(1.1);
+    -webkit-transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.logo-image a span{
+    font-size: 14px;
+    background: #c20000;
+    padding: 3px 4px 3px 3px;
+    color: #fff;
+    border-radius: 3px;
+    margin: .5em;
+    letter-spacing: -1px;
+    font-size: 0.6rem;
+}
+
+/*搜索框*/
+*{
+    box-sizing: border-box;
+}
+div.search {
+    overflow:hidden;
+    height: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+form {
+    position: relative;
+    width: 90%;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+
+input {
+    border: none;
+    outline: none;
+}
+
+input {
+    border-radius: 0px;
+    width: 100%;
+    height: 35px;
+    font-size: 17px !important;
+    padding: 10px 0 0 5px;
+    color: var(--main);
+    padding-top: 0;
+    border-bottom: 2px solid var(--main);
+}
+
+::placeholder {
+    color: var(--main);
+    opacity: 0.4;
+    font-size: 16px;
+    padding-top: 3px;
+}
+
+.btn {
+    height: 35px;
+    width: 35px;
+    top: 0;
+    border-radius: 10px;
+    right: -9px;
+    transition:all .4s;
+    -webkit-transition:all .4s;
+    cursor: pointer;
+    position: absolute;
+    border: 2px solid transparent;
+    -webkit-transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn:hover {
+    transform: scale(1.2);
+    -webkit-transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+
+}
+
+.delete_btn{
+    height: 25px;
+    width: 35px;
+    top: 5px;
+    border-radius: 0;
+    right: 33px;
+    transition:all .4s;
+    -webkit-transition:all .4s;
+    cursor: pointer;
+    position: absolute;
+    border-right: 1px dotted var(--main);
+}
+
+.delete_btn svg{
+    margin-top: -2px !important;
+    -webkit-transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.delete_btn svg:hover {
+    transform: scale(1.2);
+    -webkit-transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+
+}
+
+.bar2 input {
+    background-color: transparent;
+}
+
+.bar2 svg{
+    color: var(--main);
+    margin-top: 3px;
+}
+
+.search-class{
+    position: relative;
+    padding: 40px 0 160px 0;
+    width: 90%;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.search-class .nsert-lable {
+    overflow: hidden;
+    text-align: center;
+}
+
+.insert-lable-text{
+    overflow: hidden;
+    z-index: 1;
+}
+
+.insert-lable-text li{
+    display: inline-block;
+    padding:0 25px 0 5px;
+    font-size: 14px;
+    color: rgba(0,0,0,0.7);
+    line-height: 30px;
+    text-align: center;
+}
+
+.select_lable{
+    display: inline-block !important;
+    padding:0 5px 0 5px !important;
+    font-size: 14px !important;
+    color: rgba(0,0,0,0.7) !important;
+    line-height: 30px !important;
+    text-align: center !important;
+}
+
+.insert-lable-text li span {
+    position: absolute;
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 2px;
+    width: 18px;
+    height: 18px;
+    z-index: 1;
+    cursor:pointer;
+}
+
+
+.insert-lable-text li span svg{
+    height: 20px;
+    width: 20px;
+    transition:all .5s;
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    margin-top:0 ;
+}
+
+.insert-lable-text li span svg:hover{
+    transform: scale(1.2);
+    transition:all .5s;
+}
+
+.lable{
+    float: left;
+    margin-top: 5px;
+    border-radius: 20px;
+    line-height: 24px;
+    color: #000000;
+    padding: 1px 10px 0 10px;
+    text-align: center;
+    cursor:pointer;
+    font-size: 14px;
+    font-weight: 370;
+    letter-spacing: 1px;
+}
+
+.lable:hover{
+    color: var(--main);
+}
+
+
+.lable-change{
+    float: left;
+    color: #000000;
+    margin-top: 5px;
+    border-radius: 20px;
+    line-height: 20px;
+    padding: 1px 8px 0 8px;
+    text-align: center;
+    cursor:pointer;
+    font-size: 14px;
+    font-weight: 370;
+    border: 2px dotted var(--main);
+    letter-spacing: 1px;
+}
+
+.lable_char{
+    float: left;
+    font-size: 18px;
+    color: var(--main);
+}
+
+.small-ico{
+    border-radius: 20px;
+    margin-top: 1px;
+}
+
+.shou-talk{
+    position: relative;
+    width: 55%;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 8px 33px 0 rgba(30,35,42,0.08);
+    margin:0 auto;
+}
+
+.talk-text{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 5px 20px 0 20px;
+    float: left;
+    font-size: 22px;
+}
+.talk-author{
+    position: relative;
+    float: left;
+    font-size: 22px;
+    max-width: 420px;
+}
+
+.suggest{
+    cursor: pointer;
+    border-style:solid;
+    top: 33px;
+    z-index: 1;
+    border-color:var(--main);
+    border-width:0 2px 2px 2px;
+    width: 100% ;
+    position: absolute;
+    max-width: 550px;
+    z-index: 100;
+    font-size: 15px;
+    margin-top: 2px;
+}
+
+.suggest_ul{
+    background:#ffffff;
+    max-height: 300px;
+    overflow-y: auto;
+}
+.suggest ul{
+    margin-block-start: 0em !important;
+    margin-block-end: 0em !important;
+}
+
+.suggest ul .suggest-item-search{
+    padding: 7px 0 7px 13px;
+}
+
+.suggest ul .suggest-item-search:hover{
+    color: var(--main);
+    background: rgba(0,0,0,0.1);
+}
+
+
+.suggest ul .suggest-item-moive{
+    padding: 4px 4px 4px 13px;
+    overflow: hidden;
+}
+.suggest ul .suggest-item-moive:hover{
+    color: var(--main);
+    background: rgba(0,0,0,0.1);
+}
+
+
+.suggest ul .suggest-item-book{
+    padding: 4px 4px 4px 13px;
+}
+
+.suggest ul .suggest-item-book:hover{
+    color: var(--main);
+    background: rgba(0,0,0,0.1);
+}
+
+
+.suggest-img{
+    width: 50px;
+    height: 73px;
+    float: left;
+}
+.suggest-text{
+    float: left;
+    margin-left: 6px;
+
+}
+
+.suggest-name{
+    font-size: 10px;
+    color: #B0B0B0;
+    margin-top: 3px;
+}
+
+.suggest-numbers{
+    font-size: 10px;
+    color: #B0B0B0;
+    margin-top: 3px;
+}
+
+.suggest-year{
+    float: left;
+    margin-left: 3px;
+    color: #B0B0B0;
+    font-size: 9px;
+    margin-top: 5px;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 40px;
+    box-shadow: rgba(30, 35, 42, 0.08) 0px 8px 33px 8px;
+    padding-left: 24px;
+    background: rgb(255, 255, 255);
+}
+
+.items{
+    list-style: none;
+    margin: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0;
+}
+
+.item{
+    font-size: 13px;
+    color: #8590a6;
+    margin-right: 24px;
+    line-height: 13px;
+}
+
+/* 上面的普通css就是PC普通屏幕大于PC>1150的情况*/
+/*PC普通屏幕*/
+@media screen and (max-width: 1400px) {
+
+}
+
+@media screen and (max-width:1200px) {
+    input {
+        width: 100%;
+        height: 35px;
+        font-size: 17px !important;
+        padding: 10px 0 0 5px;
+        color: var(--main);
+        padding-top: 0;
+        border-bottom: 2px solid var(--main);
+    }
+}
+
+/* ipad */
+/*样式设置之后比他小的那些样式会继承上层样式，除非比他小的样式需要被改变*/
+@media screen and (max-width: 992px) {
+    input {
+    width: 100%;
+    height: 35px;
+    font-size: 17px !important;
+    padding: 10px 0 0 5px;
+    color: var(--main);
+    padding-top: 0;
+    border-bottom: 2px solid var(--main);
+    }
+}
+/* iphone */
+@media screen and (max-width: 700px) {
+    .box-right {
+        margin:40px auto;
+    }
+
+    .options{
+
+    }
+    .color-name{
+        display: none;
+    }
+
+    .logo-image{
+        padding:20px 0 20px 0;
+        color: #0092F8;
+        font-size: 20px;
+        text-align: center;
+        width: 90%;
+        max-width: 550px;
+        margin: 0 auto;
+    }
+
+    .logo-image a
+    {
+        font-size: 40px;
+    }
+
+    .logo-image a span
+    {
+        font-size: 10px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

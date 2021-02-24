@@ -1,0 +1,15 @@
+
+
+{% for item in movie_data %}
+        <li class="suggest-item-moive">
+            <div class="suggest-img">
+                <img style="width: 50px;height: 73px;"  src="{{ item.cover }}" height="100%">
+            </div>
+            <div class="suggest-text">
+                <div class="suggest-title">{{ item.titlecn }}</div>
+                <div class="suggest-name">{{ item.titleen }}</div>
+                <div class="suggest-numbers">{{ item.year }}</div>
+            </div>
+            <div class="suggest-year"></div>
+        </li>
+{% endfor %}

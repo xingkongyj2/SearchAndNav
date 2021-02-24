@@ -1,0 +1,582 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    --main: red;
+}
+
+
+
+#tooltip {
+    border: 1px solid red;
+    background: #FF6;
+    position: absolute;
+    padding: 1px;
+    color: #333;
+    display: none;
+}
+
+body{
+    background-color: #ECF2F8;
+    font-family: 'Anyway Type','Myriad Pro','PingFang SC','Microsoft YaHei',Arial,sans-serif;
+
+}
+
+.header{
+    background: #FFFFFF;
+    width: 100%;
+    z-index: 400;
+    top: 0;
+    left: 0;
+    height: 60px;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    box-shadow: 0 1px 4px 0 #D3D3D3;
+    text-align:center
+}
+
+.header-conteng{
+    margin: 0 auto;
+    max-width: 1070px;
+    width: 100%;
+    overflow: hidden;
+    background: #FFFFFF;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    font-size: 16px;
+
+
+}
+
+.header-menu{
+    float: right;
+    overflow: hidden;
+    padding: 18px 0;
+}
+
+.anv{
+    margin-right: 20px;
+    float: left;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 340;
+    border-radius: 20px;
+    padding-left: 5px;
+}
+.botebook{
+    float: left;
+    font-size: 16px;
+    cursor: pointer;
+    padding-left: 5px;
+    font-weight: 340;
+    letter-spacing: 2px;
+}
+
+.logo-image{
+    padding: 50px 0 30px 0;
+    color: #0092F8;
+    font-size: 70px;
+    text-align: center;
+}
+
+.box-left{
+    position:fixed;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    overflow-y: auto;
+    z-index: 1000;
+    max-height: 550px;
+}
+.box-right{
+    overflow: hidden;
+}
+
+
+.nav-header{
+    height: 80px;
+    line-height:80px;
+    font-size: 32px;
+    cursor:pointer;
+    box-shadow: 0 1px 3px 0 #D3D3D3;
+}
+
+.nav-content{
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 20px 20px 0;
+    -webkit-transition: all 500ms cubic-bezier(0.02, 0.01, 0.47, 1);
+    transition: all 500ms cubic-bezier(.02, .01, .47, 1);
+    
+}
+
+.menu{
+    position: relative;
+    top: 5%;
+    width: 80%;
+    margin: 0 auto;
+    height: 70%;
+    font-size: 14px;
+    font-weight:370;
+    letter-spacing:2px;
+    font-family: Helvetica Neue,PingFang SC,Microsoft YaHei;
+}
+.menu-item1{
+    width: 100%;
+    height: 50px;
+    border-radius:5px;
+    color: #B0B0B0;
+    line-height: 50px;
+    cursor:pointer;
+    -webkit-transition: all 500ms cubic-bezier(0.02, 0.01, 0.47, 1);
+    transition: all 500ms cubic-bezier(.02, .01, .47, 1);
+
+}
+
+.menu-item1:hover{
+    color: #000000;
+}
+
+.menu-item2{
+    width: 100%;
+    height: 50px;
+    border-radius:5px;
+    line-height: 50px;
+    
+    margin-top: 10px;
+    cursor:pointer;
+    background-color: #F8FAFF;
+    color: #000000;
+
+}
+
+.menu-item2-tag{
+    position: relative;
+    width: 100%;
+
+    border-radius:5px;
+    line-height: 50px;
+    margin-top: 10px;
+    cursor:pointer;
+    overflow-y: auto;
+    max-height: 1000px;
+
+}
+
+
+.menu-item3{
+    width: 100%;
+    height: 50px;
+    border-radius:5px;
+    line-height: 50px;
+    color: #B0B0B0;
+    cursor:pointer;
+    -webkit-transition: all 500ms cubic-bezier(0.02, 0.01, 0.47, 1);
+    transition: all 500ms cubic-bezier(.02, .01, .47, 1);
+
+
+}
+
+.menu-item3:hover{
+    color: #000000;
+}
+
+
+.nav-img{
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    height: 15%;
+}
+
+
+.toc {
+  position: relative;
+  padding: 0 1em;
+  line-height: 3em;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+
+
+.toc ul {
+list-style: none;
+padding: 0;
+margin: 0 auto; }
+.toc ul ul {
+padding-left: 2em; }
+.toc li a {
+display: inline-block;
+color: #aaa;
+text-decoration: none;
+-webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1); 
+}
+
+.toc li a:hover{
+    color: #000000;
+}
+
+
+.toc li.visible > a {
+color: #111;
+-webkit-transform: translate(5px);
+    -ms-transform: translate(5px);
+        transform: translate(5px); }
+
+.toc-marker {
+position: absolute;
+top: 0px;
+left: 0;
+width: 15px;
+height: 100%;; 
+color: #0092FF;
+}
+.toc-marker path {
+color: #0092FF;
+-webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease; }
+
+
+
+
+
+.main-panel{
+    overflow: hidden;
+    margin: 0 auto;
+
+}
+
+.main-panel:first-child{
+	margin-top: 40px;
+}
+
+section{
+    width: 1128px;
+    margin: 0 auto;
+}
+
+.panel-title{
+    padding: 3px 8px;
+    text-align: center;
+    font-size: 32px;
+    /* font-weight: 500; */
+    /* color: #000000; */
+    font-weight: 400;
+    color: red;
+    box-shadow: 0 2px 2px rgba(84, 48, 132, 0);
+    border-radius:3px 0 0 3px;
+    text-shadow: -1px 1px 0 #ddd,-2px 2px 0 #ddd;
+}
+
+.panel-class{
+    overflow: hidden;/* 子元素div高度不确定，父div自适应高度*/
+    padding: 10px 11px 21px 11px;
+}
+
+.row{
+    /*在不同的分辨率下手动设置宽度去限制有几列*/
+    /*在不同的分辨率下手动设置宽度去限制有几列*/
+    overflow:auto;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.card-col{
+    margin: 0 24px 24px 0;
+    float: left;
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+}
+
+.card{
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+    width: 248px;
+    background-color: #ffffff;
+    -webkit-transition: all 300ms;
+    transition: all 300ms;
+    height: 77px;
+    /*border: 1px dotted #333;*/
+    -webkit-transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    /*background-image: -webkit-linear-gradient(50deg, #2affda, #b2ff68);*/
+
+}
+
+
+
+
+.card:hover {
+    -webkit-box-shadow:0 20px 20px -15px #D3D3D3;
+    box-shadow:0 20px 20px -15px #D3D3D3;
+    transform: translate(0,-3px);
+}
+
+
+/*父元素悬浮改变子元素样式*/
+.card:hover .card-icon{
+    transform: scale(1) rotate(20deg);
+    transition: all 0.7s;
+}
+
+
+.card2{
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+    width: 248px;
+    background-color: #ffffff;
+    -webkit-transition: all 300ms;
+    transition: all 300ms;
+    height: 77px;
+    /*border: 1px dotted #333;*/
+    cursor: pointer;
+
+}
+
+.card2:hover{
+
+}
+
+.card-tag{
+    line-height: 79px;
+    font-size: 25px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.back-color2{
+    background-color:rgba(0,0,0,.2);
+}
+
+
+
+.back-color{
+    background-color:rgba(0,0,0,0);
+}
+
+.back-color:hover{
+}
+
+
+
+.card-heading {
+    overflow: hidden;
+    margin-bottom: 7px;
+    display: block;
+    cursor: pointer;
+    padding: 10px 18px 0;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.card-heading .card-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 32px;
+    float: left;
+    display: block;
+    transition: all 0.7s;
+}
+
+.card-heading .card-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 32px;
+}
+
+.card-heading .card-title {
+    display: block;
+    float: left;
+    padding-left: 8px;
+    margin-top: 6px;
+    font-weight: 400;
+    font-size: 15px;
+    color: #000000;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+.card-title:hover{
+    color: red;
+}
+
+
+.card-heading .card-lable{
+    display: block;
+    float: right;
+    margin-top: 8px;
+    font-weight: 400;
+    font-size: 11px;
+    background-color: #E63705;
+    border-radius: 2px;
+    padding: 1px 5px;
+    color: #ffffff;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+.card-box{
+    overflow: hidden;
+}
+
+.card-body {
+    font-size: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: 2px;
+    padding-left:16px;
+    padding-right:0px;
+    float: left;
+    max-width: 170px;
+}
+
+
+
+.like{
+    float: right;
+    margin-top: 3px;
+    cursor: pointer;
+    margin-right: 3px;
+}
+
+.card-love-number{
+    font-size: 12px;
+    margin-right: 3px;
+    padding-top: 5px;
+    color: #CACACA;
+    float: right;
+}
+
+.popup-vimeo{
+    float: right;
+    cursor: pointer;
+    margin-right: 4px;
+    padding-top: 1px;
+}
+
+.card-footer {
+    padding: 0 18px 8px;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    transition: all 0s;
+}
+
+
+
+
+/*定义滚动条高宽及背景
+ 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+    width:3px;
+    position: fixed;
+
+}
+/*定义滚动条轨道
+ 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+    border-radius:20px;
+}
+/*定义滑块
+ 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+    border-radius:20px;
+    background-color:#F6F6F6;
+}
+
+/*对卡片的特别优化*/
+@media screen and (max-width:1300px) {
+    .main-panel {
+    }
+    .card-col{
+    }
+}
+
+
+/*PC普通屏幕*/
+@media screen and (max-width:1200px) {
+
+    section{
+        width: 878px;
+    }
+}
+
+/* ipad */
+/*样式设置之后比他小的那些样式会继承上层样式，除非比他小的样式需要被改变*/
+@media screen and (max-width: 1010px) {
+
+    section{
+        width: 628px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .main-panel {
+        
+    }
+}
+
+
+/* iphone */
+@media screen and (max-width: 700px) {
+    .box-left{
+        display: none;
+    }
+    .webname{
+        display: none;
+    }
+    section{
+        width: 100%;
+    }
+    .main-panel {
+        
+    }
+
+    .main-panel:first-child{
+		margin-top: 20px;
+	}
+
+    .card{
+        width: 100%;
+    }
+    .card2{
+        width: 100%;
+    }
+    .card-col {
+        margin: 0 24px 24px 0;
+        float: left;
+        position: relative;
+        display: block;
+        width: 100%;
+    }
+    .row {
+    	padding: 15px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
